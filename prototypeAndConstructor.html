@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+let arr1=new Date();
+// console.log(arr1 instanceof Date);//true
+// console.log(arr1 instanceof Object);//true
+// console.log(arr1 instanceof Array);//false
+// console.log(arr1);
+// console.log(Object.getPrototypeOf(arr1));
+
+//构造函数
+    function Person(name,age,job){
+        this.name=name;
+        this.age=age;
+        this.job=job;
+        this.sayName=function(){
+            console.log(this.name);
+        }
+    }
+    var person1=new Person('Ashe',27,'前端开发');
+    var person2=new Person('EZ',28,'机械设计');
+    var person3=new Person('Gala',36);
+//Person是person1的constructor(构造函数)
+// console.log(person1,person1.constructor == Person);
+// console.log(person2.constructor == Person);
+// console.log(person3,person3.constructor == Person);
+//
+// console.log(Person.prototype);
+// console.log(Person.prototype.constructor);
+
+// console.log('原型模式......................');
+
+function Hero(){
+}
+Hero.prototype.name='寒冰';
+Hero.prototype.age=27;
+Hero.prototype.job='adc';
+Hero.prototype.sayLines=function(){
+    console.log('在别的游戏里，像我这么帅的都是主角哦');
+};
+var keys=Object.keys(Hero.prototype);
+console.log(keys);// ["name", "age", "job", "sayLines"]
+
+var p1=new Hero();
+p1.name='Rob';
+p1.age=12;
+var p1keys=Object.keys(p1);
+console.log(p1keys); //["name", "age"]
+
+
+//hero1和hero2是Hero（构造函数）的实例
+var hero1=new Hero();
+// hero1.sayLines();
+var hero2=new Hero();
+// hero2.sayLines();
+// console.log(hero1.hasOwnProperty('name'));//false
+// hero1.name='hanbing';
+// console.log(hero1.hasOwnProperty('name'));//true
+// console.log(Object.getOwnPropertyDescriptor(hero1,'name'));
+//
+// console.log('name' in hero1);//true
+// console.log('age' in hero1);//true
+// console.log(hero1.sayLines == hero2.sayLines);
+// //判断该属性存在于实例中还是存在于原型中
+// function hasPrototypeProperty(obj,name){
+//     return !obj.hasOwnProperty(name) && (name in obj);
+// }
+// console.log(22222222);
+// console.log(hasPrototypeProperty(hero1, 'name'));//false
+// console.log(hasPrototypeProperty(hero1, 'age'));//true
+//
+// console.log(Hero.prototype);
+// console.log(Hero.prototype.constructor);
+// //确定对象之间的关系
+// console.log(Hero.prototype.isPrototypeOf(hero1));//true
+// console.log(hero2.__proto__.isPrototypeOf(hero1));//true
+
+
+
+
+
+</script>
+</body>
+</html>
