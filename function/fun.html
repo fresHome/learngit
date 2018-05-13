@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第7章 函数表达式</title>
+</head>
+<body>
+
+<script>
+    // 函数定义
+    // 1、函数声明
+    // functionName();//1
+    //
+    // function functionName(arg0, arg1, arg2) {
+    //     //函数体
+    //     alert(1);
+    // }
+    //
+    // alert(functionName.name);//functionName
+
+    // 2、函数表达式
+    // functionName();//报错
+    // var functionName=function(arg0,arg1,arg2){
+    //     //函数体
+    // }
+    // console.log(functionName.name);
+
+    //7.1递归
+    function factorial(num){
+        if(num<=1){
+            return 1;
+        }else{
+            return num*factorial(num-1);
+        }
+    }
+    var anotherFactorial=factorial;
+    factorial=null;
+    console.log(anotherFactorial(4));//报错！
+    //
+    // var factorial = (function f(num) {
+    //     if (num <= 1) {
+    //         return 1;
+    //     } else {
+    //         return num * f(num - 1);
+    //     }
+    // })
+    // // factorial = null;
+    // // console.log(f);
+    // console.log(factorial(null));
+
+    // 最好的写法
+    // var factorial = (function f(num) {
+    //     if (num <= 1) {
+    //         return 1;
+    //     } else {
+    //         return num * f(num - 1);
+    //     }
+    // });
+</script>
+</body>
+</html>
